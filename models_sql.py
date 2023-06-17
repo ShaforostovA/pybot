@@ -12,23 +12,6 @@ class Role(DeclBase):
     id = Column(BigInteger, primary_key=True)
     name = Column(String)
 
-# class User(DeclBase):
-#     __tablename__ = "users"
-#     id = Column(BigInteger, primary_key=True)
-#     login = Column(String)
-#     password = Column(String)
-#     is_active = Column(Boolean, default=True)
-#     lastname = Column(String)
-#     name = Column(String)
-#     patronymic = Column(String)
-#     date_create = Column(DateTime, default=datetime.datetime.utcnow())
-#     date_update = Column(DateTime, default=datetime.datetime.utcnow())
-
-# class UserRole(DeclBase):
-#     __tablename__ = "user_roles"
-#     user_id = Column(BigInteger, primary_key=True)
-#     role_id = Column(BigInteger, primary_key=True)
-
 class Department(DeclBase):
     __tablename__ = "departments"
     id = Column(BigInteger, primary_key=True)
@@ -64,14 +47,6 @@ class Note(DeclBase):
     date_end = Column(DateTime)
     date_create = Column(DateTime, default=datetime.datetime.utcnow())
     date_update = Column(DateTime, default=datetime.datetime.utcnow())
-
-# class Session(DeclBase):
-#     __tablename__ = "sessions"
-#     id = Column(BigInteger, primary_key=True)
-#     user_id = Column(BigInteger)
-#     isLogout = Column(Boolean, default=True)
-#     date_start = Column(DateTime, default=datetime.datetime.utcnow())
-#     date_end = Column(DateTime)
 
 if __name__=='__main__':
     from settings import DB_PATH
