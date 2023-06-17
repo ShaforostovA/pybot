@@ -5,6 +5,8 @@ import discord
 from utils.db_utils import *
 from datetime import datetime, date
 
+from random import randint as rand
+
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
@@ -52,6 +54,7 @@ async def on_message(message):
                                   '\n- !мои-просроченные-задачи: без параметров'
                                   '\n- !обновить-статус-задачи: [Номер задачи] [Статус задачи: Не взята, В работе, Готов к тестированию, Тестирование, Переделать, Завершена, Заморожена]'
                                   '\n- !задача: [Номер задачи]'
+                                  '\n- !анекдот: без параметров'
                                   )
 
     elif message.content.startswith('!список_сотрудников'):
@@ -1102,6 +1105,39 @@ async def on_message(message):
                                   f"__Дата создания__: {note.date_create}\n"
                                   f"__Дата обновления__: {note.date_update}\n"
                                   )
+
+    elif message.content.startswith('!анекдот'):
+        new_value = rand(1, 10)
+        if (new_value == 1):
+            await message.author.send("- ты знаешь что такое ёптег?\n- нет\n- это кнопка Enter для юзверей которые по англ читать не умеют")
+            return
+        elif (new_value == 2):
+            await message.author.send("- У меня друг сервер за 5 минут сломал.\n- он что хакер?\n- Нет, он крыса!")
+            return
+        elif (new_value == 3):
+            await message.author.send("«Изучить полностью Windows нельзя! Даже сами разработчики знают о нем не все...»")
+            return
+        elif (new_value == 4):
+            await message.author.send("Забрали программиста в армию и поставили его на пост... Там шел человек: Стой! Логин,Пароль...")
+            return
+        elif (new_value == 5):
+            await message.author.send("Спать на работе - грех, не для того вам там дан бесплатный Интернет!")
+            return
+        elif (new_value == 6):
+            await message.author.send("- Раньше посылали на три буквы, а сейчас на четыре...\n- Куда?\n- На гугл")
+            return
+        elif (new_value == 7):
+            await message.author.send("Письмо:\n-Этослужбатехническойподдержки?Уменяпробелзапалпомогите!\nОтвет:\n-Настоящие-программисты-пробелами-не-пользуются!")
+            return
+        elif (new_value == 8):
+            await message.author.send("Программист — это человек, который решает совершенно непонятным вам способом проблемы, о существовании которых вы даже не подозревали.")
+            return
+        elif (new_value == 9):
+            await message.author.send("Сын подходит к папе-интернетчику:\n- Папа, а адрес пишется с одноц \"с\" или с двумя?\n- С тремя w, сынок.")
+            return
+        elif (new_value == 10):
+            await message.author.send("\n- Как три программиста могyт организовать бизнес?\n- Один пишет вирусы, а другой антивирусы.\n- А третий?\n- Операционные системы, под которыми это все работает!")
+            return
 
     else:
         await message.author.send('Для работы со мной необходимо использовать команды.\nДля получения списка команд введите !помоги.')
